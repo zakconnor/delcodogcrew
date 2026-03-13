@@ -3,570 +3,665 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Declo Dog Crew 🐾 | Dog Walking in Delaware County, PA</title>
+  <title>Declo Dog Crew | Dog Walking in Delaware County, PA</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
-    /* ---- Reset & Base ---- */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Nunito', sans-serif;
-      background: #FFFBF0;
-      color: #2D2A4A;
-      overflow-x: hidden;
-    }
 
-    /* ---- CSS Variables ---- */
     :root {
-      --orange: #FF6B35;
-      --teal:   #2EC4B6;
-      --yellow: #FFBF00;
-      --purple: #6C63FF;
-      --pink:   #FF6B9D;
-      --dark:   #2D2A4A;
-      --cream:  #FFFBF0;
-      --light:  #F0FAFE;
+      --green-dark:  #1A3329;
+      --green-mid:   #2E5D47;
+      --green-light: #4A7C5E;
+      --amber:       #B8832A;
+      --amber-light: #F0DDB5;
+      --bg:          #F7F5F0;
+      --bg-alt:      #EDEAE3;
+      --white:       #FFFFFF;
+      --text:        #2A2A2A;
+      --text-muted:  #6B6B6B;
+      --border:      #D9D5CC;
     }
 
-    /* ---- Utility ---- */
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+    /* ---- BUTTONS ---- */
     .btn {
       display: inline-block;
-      padding: 14px 32px;
-      border-radius: 50px;
-      font-family: 'Fredoka One', cursive;
-      font-size: 1.1rem;
+      padding: 13px 30px;
+      border-radius: 4px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
       text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
+      letter-spacing: 0.3px;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
       cursor: pointer;
       border: none;
     }
-    .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.18); }
-    .btn-primary { background: var(--orange); color: #fff; }
-    .btn-secondary { background: var(--teal); color: #fff; }
-    .btn-outline { background: transparent; border: 3px solid #fff; color: #fff; }
-    .btn-outline:hover { background: #fff; color: var(--dark); }
-
-    /* ---- Paw Print Decoration ---- */
-    .paw {
-      display: inline-block;
-      opacity: 0.12;
-      position: absolute;
-      pointer-events: none;
-      user-select: none;
-      font-size: 3rem;
+    .btn-primary {
+      background: var(--amber);
+      color: #fff;
     }
+    .btn-primary:hover { background: #9e701f; box-shadow: 0 4px 16px rgba(184,131,42,0.3); }
+    .btn-ghost {
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.55);
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.12); border-color: #fff; }
+    .btn-dark {
+      background: var(--green-dark);
+      color: #fff;
+    }
+    .btn-dark:hover { background: var(--green-mid); }
 
     /* ---- NAV ---- */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      background: rgba(255,251,240,0.92);
-      backdrop-filter: blur(8px);
-      border-bottom: 3px dashed var(--yellow);
-      padding: 14px 0;
+      background: rgba(247,245,240,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0;
     }
     nav .inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      max-width: 1100px;
+      max-width: 1080px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 18px 28px;
     }
     .nav-logo {
-      font-family: 'Fredoka One', cursive;
-      font-size: 1.7rem;
-      color: var(--orange);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--green-dark);
       text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      letter-spacing: -0.3px;
     }
-    .nav-logo span { color: var(--teal); }
-    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-logo span { color: var(--amber); }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
     .nav-links a {
       text-decoration: none;
-      font-weight: 700;
-      color: var(--dark);
-      font-size: 1rem;
-      position: relative;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-muted);
       transition: color 0.2s;
+      letter-spacing: 0.2px;
     }
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -3px; left: 0; right: 0;
-      height: 3px;
-      border-radius: 2px;
-      background: var(--orange);
-      transform: scaleX(0);
-      transition: transform 0.2s;
-    }
-    .nav-links a:hover { color: var(--orange); }
-    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-links a:hover { color: var(--green-dark); }
 
     /* ---- HERO ---- */
     #hero {
+      background: var(--green-dark);
       min-height: 100vh;
-      background: linear-gradient(135deg, #FF6B35 0%, #FFBF00 50%, #FF6B9D 100%);
       display: flex;
       align-items: center;
+      padding-top: 76px;
       position: relative;
       overflow: hidden;
-      padding-top: 80px;
     }
-    .hero-content {
+    /* Subtle texture overlay */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 70% 50%, rgba(74,124,94,0.35) 0%, transparent 60%),
+                        radial-gradient(circle at 20% 80%, rgba(184,131,42,0.12) 0%, transparent 50%);
+    }
+    .hero-inner {
       position: relative;
       z-index: 2;
-      text-align: center;
-      width: 100%;
-      padding: 60px 24px;
-    }
-    .hero-badge {
-      display: inline-block;
-      background: rgba(255,255,255,0.25);
-      backdrop-filter: blur(4px);
-      border: 2px solid rgba(255,255,255,0.5);
-      border-radius: 50px;
-      padding: 8px 20px;
-      font-weight: 800;
-      font-size: 0.9rem;
-      color: #fff;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-    }
-    #hero h1 {
-      font-family: 'Fredoka One', cursive;
-      font-size: clamp(3rem, 9vw, 7rem);
-      color: #fff;
-      line-height: 1.05;
-      text-shadow: 4px 4px 0px rgba(0,0,0,0.12);
-      margin-bottom: 16px;
-    }
-    #hero h1 .wiggle {
-      display: inline-block;
-      animation: wiggle 2s ease-in-out infinite;
-    }
-    #hero .tagline {
-      font-size: clamp(1.1rem, 3vw, 1.5rem);
-      color: rgba(255,255,255,0.95);
-      font-weight: 700;
-      max-width: 600px;
-      margin: 0 auto 40px;
-      line-height: 1.5;
-    }
-    .hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .hero-scroll {
-      margin-top: 60px;
-      color: rgba(255,255,255,0.8);
-      font-weight: 700;
-      font-size: 0.95rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-    }
-    .hero-scroll .arrow {
-      font-size: 1.5rem;
-      animation: bounce 1.4s ease-in-out infinite;
-    }
-    /* Floating paws in hero */
-    .float-paw {
-      position: absolute;
-      opacity: 0.18;
-      font-size: 4rem;
-      animation: floatPaw 6s ease-in-out infinite;
-      pointer-events: none;
-    }
-
-    /* ---- WAVE DIVIDERS ---- */
-    .wave-divider { overflow: hidden; line-height: 0; }
-    .wave-divider svg { display: block; width: 100%; }
-
-    /* ---- ABOUT ---- */
-    #about {
-      background: var(--cream);
-      padding: 80px 0 60px;
-      position: relative;
-    }
-    .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 60px;
       align-items: center;
+      padding: 80px 28px;
+      max-width: 1080px;
+      margin: 0 auto;
+      width: 100%;
     }
-    .about-visual {
-      position: relative;
-      display: flex;
-      justify-content: center;
-    }
-    .dog-circle {
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--teal), var(--purple));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 10rem;
-      box-shadow: 0 20px 60px rgba(46,196,182,0.3);
-      animation: float 4s ease-in-out infinite;
-      position: relative;
-    }
-    .bubble {
-      position: absolute;
-      background: #fff;
-      border-radius: 50px;
-      padding: 8px 16px;
-      font-weight: 800;
-      font-size: 0.85rem;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-      white-space: nowrap;
-    }
-    .bubble-1 { top: 10px; right: -20px; color: var(--orange); border: 2px solid var(--orange); }
-    .bubble-2 { bottom: 30px; left: -30px; color: var(--purple); border: 2px solid var(--purple); }
-    .bubble-3 { bottom: -10px; right: 10px; color: var(--teal); border: 2px solid var(--teal); }
-    .section-label {
-      display: inline-block;
-      background: var(--yellow);
-      color: var(--dark);
-      font-weight: 800;
+    .hero-text .eyebrow {
       font-size: 0.8rem;
+      font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 2px;
-      padding: 6px 16px;
-      border-radius: 50px;
-      margin-bottom: 16px;
-    }
-    #about h2 {
-      font-family: 'Fredoka One', cursive;
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.15;
+      color: var(--amber);
       margin-bottom: 20px;
-      color: var(--dark);
     }
-    #about p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: #555;
-      margin-bottom: 16px;
-    }
-    .fun-facts {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-top: 24px;
-    }
-    .fact-chip {
-      background: var(--light);
-      border: 2px solid var(--teal);
-      border-radius: 50px;
-      padding: 8px 18px;
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 5vw, 4rem);
       font-weight: 700;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 22px;
+      letter-spacing: -0.5px;
+    }
+    .hero-text p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.75;
+      margin-bottom: 36px;
+      max-width: 440px;
+    }
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      padding: 36px 32px;
+    }
+    .hero-card-stat {
+      margin-bottom: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .hero-card-stat:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--amber);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-label {
       font-size: 0.9rem;
-      color: var(--dark);
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* ---- SECTION SHARED ---- */
+    section { padding: 96px 0; }
+    .section-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--amber);
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--green-dark);
+      line-height: 1.2;
+      letter-spacing: -0.3px;
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-top: 12px;
+      max-width: 520px;
+      line-height: 1.7;
+    }
+    .section-header-centered { text-align: center; }
+    .section-header-centered .section-sub { margin-left: auto; margin-right: auto; }
+
+    /* ---- ABOUT ---- */
+    #about { background: var(--bg); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-text p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-top: 20px;
+    }
+    .credential-list {
+      margin-top: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .credential-item {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 12px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
     }
+    .cred-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--amber);
+      flex-shrink: 0;
+    }
+    .about-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .about-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 28px 22px;
+    }
+    .about-card:first-child {
+      grid-column: span 2;
+      background: var(--green-dark);
+      border-color: var(--green-dark);
+    }
+    .about-card-icon {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .about-card h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--green-dark);
+      margin-bottom: 6px;
+    }
+    .about-card:first-child h4 { color: #fff; }
+    .about-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .about-card:first-child p { color: rgba(255,255,255,0.65); }
 
     /* ---- SERVICES ---- */
-    #services {
-      background: var(--light);
-      padding: 80px 0;
-    }
-    .section-header {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-    .section-header h2 {
-      font-family: 'Fredoka One', cursive;
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      color: var(--dark);
-      margin-bottom: 12px;
-    }
-    .section-header p {
-      font-size: 1.1rem;
-      color: #666;
-      max-width: 520px;
-      margin: 0 auto;
-    }
+    #services { background: var(--bg-alt); }
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 28px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 56px;
     }
     .service-card {
-      background: #fff;
-      border-radius: 24px;
-      padding: 36px 28px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.25s, box-shadow 0.25s;
-      border: 3px solid transparent;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 36px 32px;
+      transition: box-shadow 0.2s, transform 0.2s;
     }
     .service-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
     }
-    .service-card:nth-child(1) { border-color: var(--orange); }
-    .service-card:nth-child(2) { border-color: var(--teal); }
-    .service-card:nth-child(3) { border-color: var(--purple); }
-    .service-card:nth-child(4) { border-color: var(--pink); }
-    .service-icon {
-      font-size: 3.5rem;
+    .service-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       margin-bottom: 16px;
-      display: block;
     }
     .service-card h3 {
-      font-family: 'Fredoka One', cursive;
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-      color: var(--dark);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--green-dark);
+    }
+    .service-badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--amber);
+      background: var(--amber-light);
+      border-radius: 3px;
+      padding: 4px 10px;
+      letter-spacing: 0.3px;
     }
     .service-card p {
-      font-size: 0.98rem;
-      line-height: 1.7;
-      color: #666;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+    .service-divider {
+      height: 3px;
+      width: 36px;
+      background: var(--amber);
+      border-radius: 2px;
       margin-bottom: 20px;
     }
-    .service-tag {
-      display: inline-block;
-      padding: 6px 16px;
-      border-radius: 50px;
-      font-size: 0.85rem;
-      font-weight: 800;
-    }
-    .service-card:nth-child(1) .service-tag { background: #FFF0EB; color: var(--orange); }
-    .service-card:nth-child(2) .service-tag { background: #E8FAFA; color: var(--teal); }
-    .service-card:nth-child(3) .service-tag { background: #F0EEFF; color: var(--purple); }
-    .service-card:nth-child(4) .service-tag { background: #FFF0F6; color: var(--pink); }
 
     /* ---- WHY US ---- */
-    #why {
-      background: var(--cream);
-      padding: 80px 0;
-    }
-    .why-grid {
+    #why { background: var(--bg); }
+    .why-layout {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 24px;
-      margin-top: 50px;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      margin-top: 20px;
+    }
+    .why-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 40px;
     }
     .why-item {
-      text-align: center;
-      padding: 32px 20px;
+      display: flex;
+      gap: 20px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
     }
-    .why-icon {
-      font-size: 3rem;
-      margin-bottom: 16px;
-      display: block;
+    .why-item:first-child { border-top: 1px solid var(--border); }
+    .why-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--amber);
+      min-width: 28px;
+      padding-top: 2px;
     }
-    .why-item h3 {
-      font-family: 'Fredoka One', cursive;
-      font-size: 1.3rem;
+    .why-item h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--green-dark);
+      margin-bottom: 6px;
+    }
+    .why-item p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.7; }
+    .why-aside {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .why-aside-card {
+      background: var(--green-dark);
+      border-radius: 10px;
+      padding: 32px 28px;
+      color: #fff;
+    }
+    .why-aside-card h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
       margin-bottom: 10px;
-      color: var(--dark);
     }
-    .why-item p { font-size: 0.95rem; color: #666; line-height: 1.7; }
+    .why-aside-card p { font-size: 0.92rem; color: rgba(255,255,255,0.65); line-height: 1.7; }
+    .why-aside-card .aside-link {
+      display: inline-block;
+      margin-top: 18px;
+      color: var(--amber);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+    .why-aside-card .aside-link:hover { text-decoration: underline; }
+    .why-aside-note {
+      background: var(--amber-light);
+      border-radius: 10px;
+      padding: 24px 28px;
+    }
+    .why-aside-note p {
+      font-size: 0.92rem;
+      color: var(--green-dark);
+      line-height: 1.7;
+      font-weight: 500;
+    }
 
     /* ---- AREA ---- */
-    #area {
-      background: linear-gradient(135deg, var(--purple) 0%, var(--teal) 100%);
-      padding: 80px 0;
-      position: relative;
-      overflow: hidden;
+    #area { background: var(--green-dark); padding: 96px 0; }
+    #area .section-tag { color: var(--amber); }
+    #area .section-title { color: #fff; }
+    #area .section-sub { color: rgba(255,255,255,0.6); }
+    .area-layout {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 80px;
+      align-items: start;
+      margin-top: 60px;
     }
-    #area .container { position: relative; z-index: 2; }
-    #area .section-header h2, #area .section-header p { color: #fff; }
+    .area-intro p {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-top: 16px;
+    }
+    .area-intro a {
+      display: inline-block;
+      margin-top: 24px;
+    }
     .neighborhoods {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-      margin-top: 40px;
+      gap: 10px;
     }
     .hood-chip {
-      background: rgba(255,255,255,0.2);
-      backdrop-filter: blur(4px);
-      border: 2px solid rgba(255,255,255,0.4);
-      color: #fff;
-      border-radius: 50px;
-      padding: 10px 22px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      transition: background 0.2s, transform 0.2s;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.85);
+      border-radius: 4px;
+      padding: 8px 16px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: background 0.2s;
     }
-    .hood-chip:hover {
-      background: rgba(255,255,255,0.35);
-      transform: scale(1.05);
-    }
-    .area-map-note {
-      text-align: center;
-      margin-top: 30px;
-      color: rgba(255,255,255,0.75);
-      font-size: 0.95rem;
-      font-weight: 600;
+    .hood-chip:hover { background: rgba(255,255,255,0.14); }
+    .hood-note {
+      margin-top: 24px;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.45);
     }
 
     /* ---- TESTIMONIALS ---- */
-    #testimonials {
-      background: var(--cream);
-      padding: 80px 0;
-    }
+    #testimonials { background: var(--bg-alt); }
     .testimonials-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      margin-top: 50px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 56px;
     }
     .testimonial-card {
-      background: #fff;
-      border-radius: 20px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
       padding: 32px 28px;
-      position: relative;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
     }
-    .testimonial-card::before {
-      content: '"';
-      font-family: 'Fredoka One', cursive;
-      font-size: 5rem;
-      color: var(--yellow);
-      position: absolute;
-      top: -10px;
-      left: 20px;
-      line-height: 1;
+    .stars {
+      color: var(--amber);
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
     }
     .testimonial-card p {
-      font-size: 1rem;
-      line-height: 1.7;
-      color: #555;
-      margin-bottom: 20px;
-      padding-top: 16px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      flex: 1;
+      margin-bottom: 24px;
     }
     .testimonial-author {
       display: flex;
-      align-items: center;
-      gap: 12px;
+      flex-direction: column;
+      gap: 2px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
     }
-    .author-avatar {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-    }
-    .av-1 { background: #FFE5D9; }
-    .av-2 { background: #D9F5F3; }
-    .av-3 { background: #E8E5FF; }
-    .author-info strong { display: block; font-weight: 800; color: var(--dark); font-size: 0.95rem; }
-    .author-info span { font-size: 0.85rem; color: #999; }
-    .stars { color: var(--yellow); font-size: 1rem; margin-bottom: 4px; }
+    .author-name { font-weight: 600; font-size: 0.92rem; color: var(--green-dark); }
+    .author-location { font-size: 0.83rem; color: var(--text-muted); }
 
-    /* ---- CTA / CONTACT ---- */
-    #contact {
-      background: linear-gradient(135deg, var(--orange) 0%, var(--pink) 100%);
-      padding: 100px 0;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
+    /* ---- CONTACT ---- */
+    #contact { background: var(--bg); }
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
     }
-    #contact .container { position: relative; z-index: 2; }
-    #contact h2 {
-      font-family: 'Fredoka One', cursive;
-      font-size: clamp(2.2rem, 6vw, 4rem);
-      color: #fff;
-      margin-bottom: 16px;
-      text-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+    .contact-text p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-top: 20px;
+      margin-bottom: 32px;
     }
-    #contact p {
-      color: rgba(255,255,255,0.9);
-      font-size: 1.15rem;
-      max-width: 520px;
-      margin: 0 auto 40px;
-      font-weight: 600;
-    }
-    .contact-cards {
+    .contact-info {
       display: flex;
+      flex-direction: column;
       gap: 20px;
+    }
+    .contact-row {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .contact-row-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: var(--amber-light);
+      display: flex;
+      align-items: center;
       justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 50px;
+      flex-shrink: 0;
+      font-size: 1rem;
     }
-    .contact-card {
-      background: rgba(255,255,255,0.2);
-      backdrop-filter: blur(8px);
-      border: 2px solid rgba(255,255,255,0.4);
-      border-radius: 20px;
-      padding: 28px 32px;
-      color: #fff;
-      text-align: center;
-      transition: background 0.2s, transform 0.2s;
-      min-width: 180px;
+    .contact-row-text strong {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 2px;
     }
-    .contact-card:hover {
-      background: rgba(255,255,255,0.3);
-      transform: translateY(-4px);
+    .contact-row-text a,
+    .contact-row-text span {
+      font-size: 0.97rem;
+      font-weight: 500;
+      color: var(--green-dark);
+      text-decoration: none;
     }
-    .contact-card .cc-icon { font-size: 2rem; margin-bottom: 10px; display: block; }
-    .contact-card strong { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.75; margin-bottom: 4px; }
-    .contact-card a, .contact-card span { color: #fff; font-weight: 800; font-size: 1rem; text-decoration: none; }
+    .contact-row-text a:hover { text-decoration: underline; }
+    .contact-form-panel {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px 36px;
+    }
+    .contact-form-panel h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 8px;
+    }
+    .contact-form-panel .form-sub {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+    .form-group { margin-bottom: 18px; }
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 5px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text);
+      background: var(--bg);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-color: var(--green-mid); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 
     /* ---- FOOTER ---- */
     footer {
-      background: var(--dark);
-      color: rgba(255,255,255,0.6);
-      text-align: center;
-      padding: 32px 24px;
-      font-size: 0.9rem;
+      background: var(--green-dark);
+      padding: 48px 28px;
     }
-    footer strong { color: rgba(255,255,255,0.9); }
-    footer .footer-logo {
-      font-family: 'Fredoka One', cursive;
-      font-size: 1.5rem;
-      color: var(--orange);
-      margin-bottom: 8px;
-      display: block;
+    footer .inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
     }
-    footer .paw-row {
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
       font-size: 1.2rem;
-      letter-spacing: 4px;
-      margin: 10px 0;
-      opacity: 0.3;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
     }
+    .footer-logo span { color: var(--amber); }
+    footer p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.85); }
 
-    /* ---- ANIMATIONS ---- */
-    @keyframes wiggle {
-      0%, 100% { transform: rotate(-4deg); }
-      50% { transform: rotate(4deg); }
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(8px); }
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-16px); }
-    }
-    @keyframes floatPaw {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-20px) rotate(15deg); }
+    /* ---- DIVIDER ---- */
+    .section-rule {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
     }
 
     /* ---- RESPONSIVE ---- */
-    @media (max-width: 768px) {
+    @media (max-width: 860px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-card { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-visual { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .why-layout { grid-template-columns: 1fr; gap: 0; }
+      .why-aside { margin-top: 32px; }
+      .area-layout { grid-template-columns: 1fr; gap: 40px; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .contact-layout { grid-template-columns: 1fr; gap: 48px; }
       .nav-links { display: none; }
-      .about-grid { grid-template-columns: 1fr; }
-      .about-visual { order: -1; }
-      .dog-circle { width: 220px; height: 220px; font-size: 7rem; }
+      footer .inner { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -575,309 +670,343 @@
   <!-- ========== NAV ========== -->
   <nav>
     <div class="inner">
-      <a href="#hero" class="nav-logo">🐾 Declo<span>Dog</span>Crew</a>
+      <a href="#hero" class="nav-logo">Declo <span>Dog</span> Crew</a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
-        <li><a href="#area">Our Area</a></li>
+        <li><a href="#area">Service Area</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <a href="#contact" class="btn btn-primary" style="padding:10px 24px;font-size:0.95rem;">Book a Walk!</a>
+      <a href="#contact" class="btn btn-primary">Book a Walk</a>
     </div>
   </nav>
 
   <!-- ========== HERO ========== -->
   <section id="hero">
-    <!-- Floating decorative paws -->
-    <div class="float-paw" style="top:10%;left:5%;animation-delay:0s;font-size:5rem;">🐾</div>
-    <div class="float-paw" style="top:20%;right:8%;animation-delay:1s;font-size:3rem;">🐾</div>
-    <div class="float-paw" style="bottom:20%;left:12%;animation-delay:2s;font-size:2.5rem;">🐾</div>
-    <div class="float-paw" style="bottom:15%;right:5%;animation-delay:0.5s;font-size:4rem;">🐾</div>
-    <div class="float-paw" style="top:50%;left:2%;animation-delay:3s;font-size:2rem;">🐾</div>
-
-    <div class="hero-content">
-      <div class="hero-badge">📍 Delaware County, PA</div>
-      <h1>
-        Your Dog's Favorite<br/>
-        <span class="wiggle">Adventure Crew</span><br/>
-        is Here 🐶
-      </h1>
-      <p class="tagline">
-        Professional, playful, and 100% tail-wagging certified dog walking services across DelCo. Because every good boy (and girl!) deserves the best walk of their life.
-      </p>
-      <div class="hero-ctas">
-        <a href="#contact" class="btn btn-outline">Book a Walk 🦮</a>
-        <a href="#services" class="btn" style="background:#fff;color:var(--orange);">See Services 🐕</a>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <p class="eyebrow">Delaware County, PA &mdash; Dog Walking</p>
+        <h1>Your dog deserves a great walk. Every single day.</h1>
+        <p>Declo Dog Crew is a local, fully insured dog walking service built on reliability, trust, and a genuine love for dogs. Serving DelCo families since day one.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-primary">Book a Free Meet &amp; Greet</a>
+          <a href="#services" class="btn btn-ghost">See Services</a>
+        </div>
       </div>
-      <div class="hero-scroll">
-        <span>Scroll down, it's worth it</span>
-        <span class="arrow">↓</span>
+      <div class="hero-card">
+        <div class="hero-card-stat">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Insured &amp; bonded walkers</div>
+        </div>
+        <div class="hero-card-stat">
+          <div class="stat-number">GPS</div>
+          <div class="stat-label">Walk reports after every outing</div>
+        </div>
+        <div class="hero-card-stat">
+          <div class="stat-number">Rain</div>
+          <div class="stat-label">or shine &mdash; we never cancel</div>
+        </div>
       </div>
     </div>
   </section>
-
-  <!-- Wave -->
-  <div class="wave-divider" style="background:linear-gradient(135deg,#FF6B35,#FF6B9D);margin-bottom:-2px;">
-    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-      <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#FFFBF0"/>
-    </svg>
-  </div>
 
   <!-- ========== ABOUT ========== -->
   <section id="about">
     <div class="container">
       <div class="about-grid">
-        <div class="about-visual">
-          <div class="dog-circle">🐕</div>
-          <div class="bubble bubble-1">Insured & Bonded ✅</div>
-          <div class="bubble bubble-2">GPS Tracked 📍</div>
-          <div class="bubble bubble-3">Local & Proud 🏡</div>
-        </div>
         <div class="about-text">
-          <div class="section-label">Who We Are</div>
-          <h2>We're the Crew Your Dog Has Been Dreaming About</h2>
+          <span class="section-tag">Who We Are</span>
+          <h2 class="section-title">A dog-walking crew that actually cares</h2>
           <p>
-            Declo Dog Crew was born out of pure, unapologetic love for dogs (and let's be honest, the occasional treat bribe). We're a local team of certified dog walkers serving Delaware County, PA — because your pup deserves someone who gets genuinely excited about their tail wags.
+            Declo Dog Crew was started by dog owners who were tired of the alternative: unreliable walkers, zero communication, and the sinking feeling of not knowing if your pup was okay. We set out to do it differently.
           </p>
           <p>
-            Every walk is an adventure. Every dog is a VIP. And yes, we absolutely do the goofy voice when we talk to them.
+            We're a small, tight-knit team of background-checked, pet first aid certified walkers who treat every dog like it's our own. That means consistent walkers your dog recognizes, real-time updates, and someone who notices when something seems off.
           </p>
-          <div class="fun-facts">
-            <div class="fact-chip">🏆 Fully Insured</div>
-            <div class="fact-chip">📱 Real-time Updates</div>
-            <div class="fact-chip">❤️ Pet First Aid Certified</div>
-            <div class="fact-chip">🌦️ Rain or Shine</div>
+          <div class="credential-list">
+            <div class="credential-item"><div class="cred-dot"></div>Fully insured &amp; bonded</div>
+            <div class="credential-item"><div class="cred-dot"></div>Pet First Aid &amp; CPR certified</div>
+            <div class="credential-item"><div class="cred-dot"></div>Background-checked team members</div>
+            <div class="credential-item"><div class="cred-dot"></div>GPS-tracked walks with photo updates</div>
+            <div class="credential-item"><div class="cred-dot"></div>Consistent walkers — no random strangers</div>
+          </div>
+        </div>
+        <div class="about-visual">
+          <div class="about-card">
+            <span class="about-card-icon">&#127758;</span>
+            <h4>Proudly Local</h4>
+            <p>We live and walk in Delaware County. We know the parks, the trails, and the neighborhoods. No franchise, no corporate middleman &mdash; just neighbors looking after neighbors.</p>
+          </div>
+          <div class="about-card">
+            <h4>Every Walk Documented</h4>
+            <p>You'll get a GPS route, photos, and a walk report delivered to your phone as soon as we're done.</p>
+          </div>
+          <div class="about-card">
+            <h4>Meet &amp; Greet First</h4>
+            <p>We always start with a free in-home visit so your dog can meet their walker before the first solo walk.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Wave -->
-  <div class="wave-divider" style="background:#FFFBF0;">
-    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-      <path d="M0,0 C480,80 960,0 1440,60 L1440,80 L0,80 Z" fill="#F0FAFE"/>
-    </svg>
-  </div>
+  <hr class="section-rule" />
 
   <!-- ========== SERVICES ========== -->
   <section id="services">
     <div class="container">
-      <div class="section-header">
-        <div class="section-label">What We Do</div>
-        <h2>Services That Make Tails Wag</h2>
-        <p>Pick the perfect package for your pup. We've got everything from quick potty breaks to full-on wolfpack adventures.</p>
+      <div class="section-header-centered">
+        <span class="section-tag">What We Offer</span>
+        <h2 class="section-title">Services built around your dog's needs</h2>
+        <p class="section-sub">Whether your dog needs a daily midday walk or just a quick check-in, we've got a service that fits.</p>
       </div>
       <div class="services-grid">
         <div class="service-card">
-          <span class="service-icon">🦮</span>
-          <h3>Solo Walks</h3>
-          <p>One-on-one time with your dog. All the attention, all the sniffs, none of the distractions. For the dog who likes it personal.</p>
-          <span class="service-tag">30 or 60 min</span>
+          <div class="service-card-top">
+            <h3>Solo Walk</h3>
+            <span class="service-badge">30 or 60 min</span>
+          </div>
+          <div class="service-divider"></div>
+          <p>Your dog gets our walker's undivided attention. Ideal for dogs who prefer one-on-one time, are in training, or need a bit more space around other dogs. No pack, no distractions — just a great walk.</p>
         </div>
         <div class="service-card">
-          <span class="service-icon">🐕‍🦺</span>
-          <h3>Pack Walks</h3>
-          <p>Your pup + their new best friends. Small groups, big adventures. Social skills included at no extra charge.</p>
-          <span class="service-tag">Group fun!</span>
+          <div class="service-card-top">
+            <h3>Small Group Walk</h3>
+            <span class="service-badge">Max 4 dogs</span>
+          </div>
+          <div class="service-divider"></div>
+          <p>A small, carefully matched group of dogs out for an adventure together. Great for social dogs who get a little extra energy from having a crew. Groups are capped at four to keep things safe and manageable.</p>
         </div>
         <div class="service-card">
-          <span class="service-icon">🏠</span>
-          <h3>Drop-In Visits</h3>
-          <p>Quick check-in, potty break, and cuddle session. Perfect for the busy days when your dog just needs a little love.</p>
-          <span class="service-tag">20 min check-in</span>
+          <div class="service-card-top">
+            <h3>Drop-In Visit</h3>
+            <span class="service-badge">20 min</span>
+          </div>
+          <div class="service-divider"></div>
+          <p>A midday check-in with feeding, a bathroom break, fresh water, and plenty of attention. Perfect for puppies, senior dogs, or any day your dog just needs someone to pop by.</p>
         </div>
         <div class="service-card">
-          <span class="service-icon">🌙</span>
-          <h3>Puppy Care</h3>
-          <p>Extra visits for puppies who need more frequent attention, bathroom breaks, and supervision. We get it — puppies are a lot.</p>
-          <span class="service-tag">Multiple daily visits</span>
+          <div class="service-card-top">
+            <h3>Puppy Package</h3>
+            <span class="service-badge">Multiple daily</span>
+          </div>
+          <div class="service-divider"></div>
+          <p>New puppy? We get it — they need a lot. This package includes multiple visits throughout the day to cover frequent bathroom breaks, feeding schedules, and basic routine building.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Wave -->
-  <div class="wave-divider" style="background:#F0FAFE;">
-    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-      <path d="M0,60 C360,0 1080,80 1440,20 L1440,80 L0,80 Z" fill="#FFFBF0"/>
-    </svg>
-  </div>
+  <hr class="section-rule" />
 
   <!-- ========== WHY US ========== -->
   <section id="why">
     <div class="container">
-      <div class="section-header">
-        <div class="section-label">Why Declo Dog Crew?</div>
-        <h2>We're Kind of a Big Deal (to Dogs)</h2>
-      </div>
-      <div class="why-grid">
-        <div class="why-item">
-          <span class="why-icon">📸</span>
-          <h3>Photo Updates</h3>
-          <p>Get adorable mid-walk pics and updates delivered straight to your phone. Your dog is a model. Fact.</p>
+      <div class="why-layout">
+        <div>
+          <span class="section-tag">Why Choose Us</span>
+          <h2 class="section-title">The details that make the difference</h2>
+          <div class="why-list">
+            <div class="why-item">
+              <div class="why-num">01</div>
+              <div>
+                <h4>Consistent walkers</h4>
+                <p>Your dog will have the same walker every time. Familiarity matters — dogs are less stressed, and you know exactly who's coming through your door.</p>
+              </div>
+            </div>
+            <div class="why-item">
+              <div class="why-num">02</div>
+              <div>
+                <h4>Real-time updates</h4>
+                <p>After every walk you'll receive a GPS map, photos, and a brief report. No more wondering how it went — you'll know.</p>
+              </div>
+            </div>
+            <div class="why-item">
+              <div class="why-num">03</div>
+              <div>
+                <h4>We never cancel last-minute</h4>
+                <p>Rain, snow, heat — your dog still needs their walk and we'll be there. We maintain backup walkers so your schedule isn't disrupted.</p>
+              </div>
+            </div>
+            <div class="why-item">
+              <div class="why-num">04</div>
+              <div>
+                <h4>Easy scheduling &amp; payment</h4>
+                <p>Book, adjust, and pay through our app. No phone tag, no invoice chasing — everything is handled cleanly online.</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="why-item">
-          <span class="why-icon">🔐</span>
-          <h3>Trusted & Safe</h3>
-          <p>Background-checked, insured, and bonded. Your keys, your home, and your dog are in good hands.</p>
-        </div>
-        <div class="why-item">
-          <span class="why-icon">🗺️</span>
-          <h3>GPS Walk Reports</h3>
-          <p>Every walk tracked with a GPS route map so you can see exactly where your adventurer explored today.</p>
-        </div>
-        <div class="why-item">
-          <span class="why-icon">🌦️</span>
-          <h3>All-Weather Crew</h3>
-          <p>Rain, snow, or sunshine — your dog still needs their walk. And we'll never bail on you.</p>
-        </div>
-        <div class="why-item">
-          <span class="why-icon">💌</span>
-          <h3>Easy Booking</h3>
-          <p>Book, manage, and pay for walks easily. More time cuddling your dog, less time on hold.</p>
-        </div>
-        <div class="why-item">
-          <span class="why-icon">🐾</span>
-          <h3>Truly Dog-Obsessed</h3>
-          <p>We aren't doing this for the money. (Okay, partly.) We're doing this because we are genuinely, embarrassingly in love with dogs.</p>
+        <div class="why-aside">
+          <div class="why-aside-card">
+            <h4>Start with a free meet &amp; greet</h4>
+            <p>Before your first walk, we'll come to your home so your dog can get comfortable with their walker. No commitment required &mdash; just a chance to make sure it's the right fit.</p>
+            <a href="#contact" class="aside-link">Schedule yours &rarr;</a>
+          </div>
+          <div class="why-aside-note">
+            <p>"I've tried three different dog walkers in DelCo. Declo Dog Crew is the only one where my dog actually seems excited when they show up. That's all I needed to know." &mdash; <strong>Havertown client</strong></p>
+          </div>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- Wave -->
-  <div class="wave-divider" style="background:#FFFBF0;">
-    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-      <path d="M0,20 C480,80 960,0 1440,50 L1440,80 L0,80 Z" fill="#6C63FF"/>
-    </svg>
-  </div>
 
   <!-- ========== AREA ========== -->
   <section id="area">
-    <div style="position:absolute;inset:0;opacity:0.07;font-size:8rem;display:flex;flex-wrap:wrap;overflow:hidden;pointer-events:none;gap:20px;padding:20px;">
-      🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾
-    </div>
     <div class="container">
-      <div class="section-header">
-        <div class="section-label" style="background:rgba(255,255,255,0.25);color:#fff;">Where We Walk</div>
-        <h2>Proud to Serve Delaware County</h2>
-        <p>We cover the best neighborhoods across DelCo — if your street has sidewalks, we're probably on it.</p>
+      <div class="section-header-centered">
+        <span class="section-tag">Where We Walk</span>
+        <h2 class="section-title" style="color:#fff;">Serving Delaware County, PA</h2>
+        <p class="section-sub" style="color:rgba(255,255,255,0.55);margin-left:auto;margin-right:auto;">We cover communities throughout DelCo. If you don't see your neighborhood listed, reach out &mdash; our coverage area is always growing.</p>
       </div>
-      <div class="neighborhoods">
-        <div class="hood-chip">Media</div>
-        <div class="hood-chip">Swarthmore</div>
-        <div class="hood-chip">Springfield</div>
-        <div class="hood-chip">Havertown</div>
-        <div class="hood-chip">Broomall</div>
-        <div class="hood-chip">Upper Darby</div>
-        <div class="hood-chip">Ridley Park</div>
-        <div class="hood-chip">Folsom</div>
-        <div class="hood-chip">Drexel Hill</div>
-        <div class="hood-chip">Clifton Heights</div>
-        <div class="hood-chip">Sharon Hill</div>
-        <div class="hood-chip">Lansdowne</div>
-        <div class="hood-chip">Yeadon</div>
-        <div class="hood-chip">Glenolden</div>
-        <div class="hood-chip">Norwood</div>
-        <div class="hood-chip">And more! 🐾</div>
+      <div class="area-layout">
+        <div class="area-intro">
+          <p>We're based in Delaware County and proud of it. Our walkers know the local parks, safe routes, and the quirks of each neighborhood.</p>
+          <a href="#contact" class="btn btn-primary" style="margin-top:24px;">Check your area</a>
+        </div>
+        <div>
+          <div class="neighborhoods">
+            <div class="hood-chip">Media</div>
+            <div class="hood-chip">Swarthmore</div>
+            <div class="hood-chip">Springfield</div>
+            <div class="hood-chip">Havertown</div>
+            <div class="hood-chip">Broomall</div>
+            <div class="hood-chip">Upper Darby</div>
+            <div class="hood-chip">Ridley Park</div>
+            <div class="hood-chip">Folsom</div>
+            <div class="hood-chip">Drexel Hill</div>
+            <div class="hood-chip">Clifton Heights</div>
+            <div class="hood-chip">Sharon Hill</div>
+            <div class="hood-chip">Lansdowne</div>
+            <div class="hood-chip">Yeadon</div>
+            <div class="hood-chip">Glenolden</div>
+            <div class="hood-chip">Norwood</div>
+            <div class="hood-chip">Prospect Park</div>
+          </div>
+          <p class="hood-note">Don't see your town? Get in touch &mdash; we may still cover it.</p>
+        </div>
       </div>
-      <p class="area-map-note">Not sure if we cover your area? Reach out — we'll probably say yes. 🗺️</p>
     </div>
   </section>
-
-  <!-- Wave -->
-  <div class="wave-divider" style="background:#6C63FF;">
-    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-      <path d="M0,40 C360,0 1080,80 1440,30 L1440,80 L0,80 Z" fill="#FFFBF0"/>
-    </svg>
-  </div>
 
   <!-- ========== TESTIMONIALS ========== -->
   <section id="testimonials">
     <div class="container">
-      <div class="section-header">
-        <div class="section-label">The Humans Agree</div>
-        <h2>Don't Take Our Word For It</h2>
-        <p>(Take theirs — and maybe ask their dogs too.)</p>
+      <div class="section-header-centered">
+        <span class="section-tag">Client Stories</span>
+        <h2 class="section-title">What DelCo dog owners are saying</h2>
       </div>
       <div class="testimonials-grid">
         <div class="testimonial-card">
-          <p>My golden retriever, Biscuit, literally drags me to the door when he sees the Declo Dog Crew van pull up. I've never seen him this excited about anything — including bacon. That says it all.</p>
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"My golden, Biscuit, sprints to the door when he hears them coming. I've never seen him that excited about anything except bacon. I think he likes his walker more than me."</p>
           <div class="testimonial-author">
-            <div class="author-avatar av-1">🧑</div>
-            <div class="author-info">
-              <div class="stars">★★★★★</div>
-              <strong>Sarah M.</strong>
-              <span>Swarthmore, PA</span>
-            </div>
+            <div class="author-name">Sarah M.</div>
+            <div class="author-location">Swarthmore, PA</div>
           </div>
         </div>
         <div class="testimonial-card">
-          <p>As a work-from-home chaos parent, I needed reliable help. These folks show up every single time, send the cutest photos, and my anxious rescue pup has totally come out of her shell. 10/10, would recommend to every dog owner I know.</p>
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"Working from home, I needed someone reliable. They show up every single time, send great updates, and my anxious rescue has genuinely come out of her shell. I can't recommend them enough."</p>
           <div class="testimonial-author">
-            <div class="author-avatar av-2">👩</div>
-            <div class="author-info">
-              <div class="stars">★★★★★</div>
-              <strong>Marcus T.</strong>
-              <span>Media, PA</span>
-            </div>
+            <div class="author-name">Marcus T.</div>
+            <div class="author-location">Media, PA</div>
           </div>
         </div>
         <div class="testimonial-card">
-          <p>I was nervous about trusting strangers with my dog Bruno. Then I met the Declo Dog Crew. They did a meet-and-greet, asked all the right questions, and Bruno came home absolutely wiped out (the dream). We're regulars now.</p>
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"They did a meet-and-greet before ever walking Bruno alone, asked all the right questions, and he came home tired and happy. Exactly what you want. We've been regulars ever since."</p>
           <div class="testimonial-author">
-            <div class="author-avatar av-3">🧕</div>
-            <div class="author-info">
-              <div class="stars">★★★★★</div>
-              <strong>Jess & Bruno K.</strong>
-              <span>Havertown, PA</span>
-            </div>
+            <div class="author-name">Jess K.</div>
+            <div class="author-location">Havertown, PA</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Wave -->
-  <div class="wave-divider" style="background:#FFFBF0;">
-    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-      <path d="M0,0 C480,80 960,0 1440,60 L1440,80 L0,80 Z" fill="#FF6B35"/>
-    </svg>
-  </div>
+  <hr class="section-rule" />
 
-  <!-- ========== CONTACT / CTA ========== -->
+  <!-- ========== CONTACT ========== -->
   <section id="contact">
-    <!-- Background paws -->
-    <div style="position:absolute;top:-20px;left:-20px;font-size:12rem;opacity:0.08;transform:rotate(-20deg);pointer-events:none;">🐾</div>
-    <div style="position:absolute;bottom:-20px;right:-20px;font-size:14rem;opacity:0.08;transform:rotate(20deg);pointer-events:none;">🐾</div>
-
     <div class="container">
-      <h2>Ready to Make Your Dog the Happiest Pup on the Block?</h2>
-      <p>We'd love to meet your furry family member. Reach out and let's set up a free meet-and-greet!</p>
-      <a href="mailto:hello@delcodogcrew.com" class="btn" style="background:#fff;color:var(--orange);font-size:1.2rem;">
-        Book Your Free Meet & Greet 🐾
-      </a>
-      <div class="contact-cards">
-        <div class="contact-card">
-          <span class="cc-icon">📧</span>
-          <strong>Email Us</strong>
-          <a href="mailto:hello@delcodogcrew.com">hello@delcodogcrew.com</a>
+      <div class="contact-layout">
+        <div class="contact-text">
+          <span class="section-tag">Get in Touch</span>
+          <h2 class="section-title">Let's find the right fit for your dog</h2>
+          <p>Every new client starts with a free, no-pressure meet and greet. We'll come to your home, meet your dog, learn their routine, and answer any questions you have.</p>
+          <div class="contact-info">
+            <div class="contact-row">
+              <div class="contact-row-icon">&#9993;</div>
+              <div class="contact-row-text">
+                <strong>Email</strong>
+                <a href="mailto:hello@delcodogcrew.com">hello@delcodogcrew.com</a>
+              </div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-row-icon">&#9742;</div>
+              <div class="contact-row-text">
+                <strong>Phone / Text</strong>
+                <a href="tel:+16105550364">(610) 555-0364</a>
+              </div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-row-icon">&#128205;</div>
+              <div class="contact-row-text">
+                <strong>Service Area</strong>
+                <span>Delaware County, PA</span>
+              </div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-row-icon">&#128337;</div>
+              <div class="contact-row-text">
+                <strong>Hours</strong>
+                <span>Mon&ndash;Sat, 7am&ndash;7pm</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="contact-card">
-          <span class="cc-icon">📱</span>
-          <strong>Text or Call</strong>
-          <a href="tel:+16105550DOG">(610) 555-0364</a>
-        </div>
-        <div class="contact-card">
-          <span class="cc-icon">📍</span>
-          <strong>We Serve</strong>
-          <span>Delaware County, PA</span>
-        </div>
-        <div class="contact-card">
-          <span class="cc-icon">⏰</span>
-          <strong>Available</strong>
-          <span>Mon–Sat, 7am–7pm</span>
+        <div class="contact-form-panel">
+          <h3>Request a Meet &amp; Greet</h3>
+          <p class="form-sub">Free, no commitment &mdash; just a chance to say hello.</p>
+          <form>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Your Name</label>
+                <input type="text" placeholder="Jane Smith" />
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="jane@email.com" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Phone</label>
+                <input type="tel" placeholder="(610) 000-0000" />
+              </div>
+              <div class="form-group">
+                <label>Neighborhood</label>
+                <input type="text" placeholder="Swarthmore, Media, etc." />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Service Interested In</label>
+              <select>
+                <option value="">Select a service...</option>
+                <option>Solo Walk</option>
+                <option>Small Group Walk</option>
+                <option>Drop-In Visit</option>
+                <option>Puppy Package</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Tell us about your dog</label>
+              <textarea placeholder="Breed, age, anything we should know..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-dark" style="width:100%;text-align:center;">Send Request</button>
+          </form>
         </div>
       </div>
     </div>
@@ -885,10 +1014,16 @@
 
   <!-- ========== FOOTER ========== -->
   <footer>
-    <span class="footer-logo">🐾 Declo Dog Crew</span>
-    <div class="paw-row">🐾 🐾 🐾 🐾 🐾</div>
-    <p>Proudly serving dogs (and their humans) across <strong>Delaware County, PA</strong></p>
-    <p style="margin-top:8px;">© 2025 Declo Dog Crew &nbsp;·&nbsp; All rights reserved &nbsp;·&nbsp; Made with ❤️ and treats</p>
+    <div class="inner">
+      <a href="#hero" class="footer-logo">Declo <span>Dog</span> Crew</a>
+      <ul class="footer-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#area">Service Area</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <p>&copy; 2025 Declo Dog Crew &mdash; Delaware County, PA</p>
+    </div>
   </footer>
 
 </body>
